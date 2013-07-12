@@ -1,0 +1,77 @@
+    
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Scrolly Site</title>
+		<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1' />
+        <link href='css/normalize.css' rel='stylesheet' type='text/css' />
+        <link href='css/scrolly.css' rel='stylesheet' type='text/css' />
+    </head>
+
+    <body>
+        <div id="content">
+           <section id="section1">
+           		<div id="firstbox">
+           			<div id="gobox"></div>
+           		</div>
+
+           </section>
+           <section id="section2">
+           		<div id="testbox"></div>
+           	</section>
+           <section id="section3">
+           		<div id="examples-parallax">
+						<h2 id="parallax-it">Parallax It</h2>
+						<h2 id="parallax-it-left">Parallax It</h2>
+						<h2 id="parallax-it-right">Parallax It</h2> 
+					</div>
+           	</section>
+        </div>
+        <script type="text/javascript" src="js/lib/TweenMax.min.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		  	<script>window.jQuery || document.write('<script src="js/lib/jquery-1.9.1.min.js"><\/script>')</script>
+			<script src="js/lib/jquery.superscrollorama.js"></script>
+			<script>
+				$(document).ready(function() {
+					var controller = $.superscrollorama({
+						triggerAtCenter: false,
+						playoutAnimations: true
+					});
+
+					controller.addTween('#testbox', 
+						TweenMax.from($('#testbox'), .5, {css:{opacity:0}}), 0, -300 );
+
+					controller.addTween(
+						  '#examples-parallax',
+						  (new TimelineLite())
+						    .append([
+						      TweenMax.fromTo($('#parallax-it-left'), 1, 
+						        {css:{top: 200}, immediateRender:true}, 
+						        {css:{top: -600}}),
+						      TweenMax.fromTo($('#parallax-it-right'), 1, 
+						        {css:{top: 500}, immediateRender:true}, 
+						        {css:{top: -1250}})
+						    ]),
+						  1000 // scroll duration of tween
+						);
+
+					controller.addTween(
+						  '#firstbox',
+						  (new TimelineLite())
+						    .append([
+						      TweenMax.fromTo($('#gobox'), 1, 
+						        {css:{top: 0}, immediateRender:true}, 
+						        {css:{top: 600}}),
+						      TweenMax.to($('#gobox'), 1, 
+						        {css:{top: 500}, immediateRender:true}, 
+						        {css:{top: -1250}})
+						    ]),
+						  1000 // scroll duration of tween
+						);
+
+				});
+			</script>
+    </body>
+</html>
+    

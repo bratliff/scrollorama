@@ -1,0 +1,71 @@
+
+section {
+	height:800px;
+	width:100%;
+}
+
+#section1{
+	background:#ccffff;
+}
+#section2{
+	background:#ffccff;
+	padding:100px 0;
+}
+#section3{
+	background:#ccccff;
+}
+#testbox {
+	width:100px;
+	height:100px;
+	margin:0px auto;
+	border:1px #FFF solid;
+	background:#ff88cc;
+}
+
+#gobox {
+	background:#000;
+	width:200px;
+	height:100px;
+}
+
+#examples-parallax div{
+	background:#FC0;
+	width:100px;
+	height:100px;
+}
+
+#parallax-it-left {
+position: relative;
+font-size: 120px;
+left: -160px;
+color: #C5C3DE;
+opacity: 0.5;
+-moz-opacity: 0.5;
+filter: alpha(opacity=8);
+overflow: hidden;
+}
+
+#parallax-it-right {
+position: relative;
+font-size: 160px;
+left: 80px;
+color: #C5C3DE;
+opacity: 0.25;
+-moz-opacity: 0.25;
+filter: alpha(opacity=6);
+overflow: hidden;
+width: 900px;
+}
+
+#parallax-it {
+padding: 0;
+font-size: 80px;
+position: relative;
+}
+
+#examples-parallax {
+padding-top: 200px;
+height: 800px;
+margin-bottom: -600px;
+overflow: hidden;
+}
